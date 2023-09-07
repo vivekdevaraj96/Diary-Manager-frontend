@@ -22,7 +22,7 @@ const Diarymanager = () => {
   const [eventName, setEventName] = useState("");
   const [eventLocation, setEventLocation] = useState("");
   const [eventData, setEventData] = useState({});
-  const [data, setData] = useState([{_id: '64f890dea9016c667c763cfd', id: 1, title: 'hii', start: '2023-09-06T01:30:00.000Z', end: '2023-09-06T03:30:00.000Z'}]);
+  const [data, setData] = useState([]);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -31,7 +31,7 @@ const Diarymanager = () => {
 
   async function getData() {
     try {
-      const response = await axios.get("http://localhost:8000/");
+      const response = await axios.get("https://diary-manager-backend.onrender.com");
       console.log(response.data);
       setData([...response.data]);
     } catch (error) {
@@ -73,8 +73,8 @@ const Diarymanager = () => {
       allDay: eventData.allDay,
     };
     try {
-      const response = await axios.post("http://localhost:8000/", payload);
-      // console.log(response.data);
+      const response = await axios.post("https://diary-manager-backend.onrender.com", payload);
+      console.log(response.data);
       // setData(response.data.data)
     } catch (error) {
       // console.log(error);
@@ -88,7 +88,7 @@ const Diarymanager = () => {
     handleCloseAlert();
     // console.log(id);
     try {
-      const response = await axios.delete(`http://localhost:8000/${id}`);
+      const response = await axios.delete(`https://diary-manager-backend.onrender.com/${id}`);
       // console.log(response.data);
 
       setData(response.data.data)
@@ -125,7 +125,7 @@ const Diarymanager = () => {
               <Form.Control
                 type="text"
                 placeholder="Event Title"
-                onChange={(e) => setEventName(e.target.value)}
+                onChange={(e) => setEventName(e.target.value)}                
               />
             </FloatingLabel>
             <FloatingLabel
