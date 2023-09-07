@@ -1,23 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import Diarymanager from './Components/Diarymanger';
+import Navbar from 'react-bootstrap/Navbar';
+import Container from 'react-bootstrap/Container';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar bg="dark" data-bs-theme="dark">
+        <Container>
+          <Navbar.Brand href="#home">Diary Manager</Navbar.Brand>
+          
+        </Container>
+      </Navbar>
+      <div id="calendarcontent">
+      <Diarymanager/>
+    </div>
+      
     </div>
   );
 }
